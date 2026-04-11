@@ -12,7 +12,9 @@ const config = {
       ? adapterStatic({
           pages: 'build',
           assets: 'build',
-          fallback: 'index.html',
+          // Use 200.html so prerendered index.html survives. Capacitor will serve
+          // prerendered pages directly and fall back to 200.html for SPA routes.
+          fallback: '200.html',
           strict: false
         })
       : adapterVercel(),

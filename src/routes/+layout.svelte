@@ -1,6 +1,20 @@
 <script lang="ts">
   import '../app.css';
-  let { children } = $props();
+  import SafeArea from '$lib/components/SafeArea.svelte';
+  import SiteHeader from '$lib/components/SiteHeader.svelte';
+  import SiteFooter from '$lib/components/SiteFooter.svelte';
+
+  let { children: pageContent } = $props();
 </script>
 
-{@render children()}
+<SafeArea>
+  {#snippet children()}
+    <div class="flex min-h-dvh flex-col">
+      <SiteHeader />
+      <main class="flex-1">
+        {@render pageContent()}
+      </main>
+      <SiteFooter />
+    </div>
+  {/snippet}
+</SafeArea>
