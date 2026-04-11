@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color — UI-SPEC.md Color table, Phase 5 will invert these */
+  --color-paper: #fafafa;
+  --color-paper-muted: #eaeaea;
+  --color-hairline: #e5e5e5;
+  --color-ink: #0a0a0a;
+  --color-ink-muted: #6b6b6b;
+  --color-destructive: #8b0000;
+
+  /* Typography — UI-SPEC.md Typography table */
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Spacing base — UI-SPEC.md Spacing Scale */
+  --spacing: 0.25rem;
+
+  /* Breakpoints (mobile-first) */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+
+  /* Motion tokens — UI-SPEC.md Interaction & Motion */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Safe area insets (UI-SPEC.md Spacing Scale exceptions) */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+/* Self-hosted font declarations */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global baseline */
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+/* WCAG: honor reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicator (UI-SPEC Accessibility Contract) */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
