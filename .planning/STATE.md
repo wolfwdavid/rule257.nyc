@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-02-supabase-drizzle-schema-PLAN.md
-last_updated: "2026-04-11T02:24:37.745Z"
+stopped_at: Completed 01-04-auth-magic-link-PLAN.md
+last_updated: "2026-04-11T02:45:10.658Z"
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 5
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-04-09)
 ## Current Position
 
 Phase: 01 (foundation) — EXECUTING
-Plan: 3 of 5
+Plan: 5 of 5
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: 3 of 5
 | Phase 01 P01 | 11 | 2 tasks | 18 files |
 | Phase 01-foundation P03 | 15min | 3 tasks | 12 files |
 | Phase 01 P02 | 19 | 2 tasks | 11 files |
+| Phase 01-foundation P04 | 11min | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [Phase 01]: drizzle-kit generate+migrate workflow (not push) -- migration SQL is committed to supabase/migrations/ so schema is reproducible from any clone
 - [Phase 01]: CHECK constraints over Postgres enum types for role/type/status -- keeps Phase 3 reward-economics migrations single-line rather than ALTER TYPE dances
 - [Phase 01]: Extracted legacy JWT anon key via 'supabase status -o json' because CLI 2.89.1 only shows new-style sb_publishable_* keys in pretty-print output
+- [Phase 01-foundation]: Plan 04: Substituted hand-rolled Svelte 5 email component + svelte/server render() in place of D-29 literal 'React Email templates' (avoids React transitive dep in pure Svelte codebase). Flagged for /gsd:verify-work user acceptance.
+- [Phase 01-foundation]: Plan 04: Merged Better Auth CLI schema drift into Drizzle schema.ts — user.name notNull, 7 nullable account OAuth columns, 3 indexes on userId/identifier. Applied as 0001_better_auth_sync migration.
+- [Phase 01-foundation]: Plan 04: /account uses ssr=false + prerender=false + client-side authClient.useSession() guard — single implementation works in both adapter-vercel and adapter-static builds without per-adapter branching.
 
 ### Pending Todos
 
@@ -82,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-11T02:24:37.741Z
-Stopped at: Completed 01-02-supabase-drizzle-schema-PLAN.md
+Last session: 2026-04-11T02:44:37.189Z
+Stopped at: Completed 01-04-auth-magic-link-PLAN.md
 Resume file: None
