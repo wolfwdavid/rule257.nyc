@@ -2,16 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 UI-SPEC approved
-last_updated: "2026-04-10T22:36:57.582Z"
-last_activity: 2026-04-09 -- Roadmap created with 5 phases, 26 requirements mapped
+status: unknown
+stopped_at: Completed 01-01-scaffold-and-tokens-PLAN.md
+last_updated: "2026-04-11T01:56:38.696Z"
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 5
+  completed_plans: 1
 ---
 
 # Project State
@@ -21,16 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-09)
 
 **Core value:** Authentically represent Rule 257's identity as a space where art, fashion, design, and coffee culture converge
-**Current focus:** Phase 1: Foundation
+**Current focus:** Phase 01 — foundation
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-04-09 -- Roadmap created with 5 phases, 26 requirements mapped
-
-Progress: [..........] 0%
+Phase: 01 (foundation) — EXECUTING
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -52,6 +46,7 @@ Progress: [..........] 0%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01 P01 | 11 | 2 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -62,6 +57,9 @@ Recent decisions affecting current work:
 
 - [Roadmap]: 5 phases derived from 26 requirements (coarse granularity). Phases 2 and 3 share only Phase 1 as dependency -- parallel execution possible.
 - [Roadmap]: BRAND-06 (mobile-responsive) assigned to Phase 1 as foundational infrastructure, not Phase 2.
+- [Phase 01]: Dual-adapter via BUILD_TARGET env var in svelte.config.js (adapter-vercel <-> adapter-static with bundleStrategy: 'single' on mobile)
+- [Phase 01]: TailwindCSS v4 CSS-first @theme block in src/app.css replaces tailwind.config.js entirely; all design tokens (color/font/spacing/motion) live in one place
+- [Phase 01]: Self-hosted Fraunces + Inter via @fontsource devDep + file copy to static/fonts/ (not CSS imports); woff2 files referenced directly by @font-face in app.css
 
 ### Pending Todos
 
@@ -75,6 +73,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-10T22:36:57.578Z
-Stopped at: Phase 1 UI-SPEC approved
-Resume file: .planning/phases/01-foundation/01-UI-SPEC.md
+Last session: 2026-04-11T01:56:38.693Z
+Stopped at: Completed 01-01-scaffold-and-tokens-PLAN.md
+Resume file: None

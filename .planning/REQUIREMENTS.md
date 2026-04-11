@@ -14,7 +14,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **BRAND-03**: Site includes Schema.org LocalBusiness markup for Google Knowledge Panel
 - [ ] **BRAND-04**: Visitor can browse signature menu items (French vanilla oat latte, strawberry matcha latte, pistachio tiramisu) with styled product cards
 - [ ] **BRAND-05**: Visitor can browse photo gallery of the space in masonry/grid layout with lazy-loaded optimized images
-- [ ] **BRAND-06**: Site is fully mobile-responsive with mobile-first design
+- [x] **BRAND-06**: Site is fully mobile-responsive with mobile-first design
 - [ ] **BRAND-07**: Social media links visible in footer (Instagram, etc.)
 
 ### Content
@@ -90,7 +90,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BRAND-03 | Phase 2 | Pending |
 | BRAND-04 | Phase 2 | Pending |
 | BRAND-05 | Phase 2 | Pending |
-| BRAND-06 | Phase 1 | Pending |
+| BRAND-06 | Phase 1 | Complete |
 | BRAND-07 | Phase 2 | Pending |
 | CONT-01 | Phase 2 | Pending |
 | CONT-02 | Phase 2 | Pending |

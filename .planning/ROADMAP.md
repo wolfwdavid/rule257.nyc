@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 5 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Scaffold SvelteKit + dual-adapter + TailwindCSS v4 tokens + self-hosted fonts (Wave 1)
+- [x] 01-01-PLAN.md -- Scaffold SvelteKit + dual-adapter + TailwindCSS v4 tokens + self-hosted fonts (Wave 1)
 - [ ] 01-02-PLAN.md -- Supabase local + Drizzle schema + 9 tables migrated (Wave 2)
 - [ ] 01-03-PLAN.md -- Layout shell components + Coming Soon home (Wave 2)
 - [ ] 01-04-PLAN.md -- Better Auth + magic link + Resend + AuthModal + /account stub (Wave 3)
