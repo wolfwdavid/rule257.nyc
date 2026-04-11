@@ -1,17 +1,21 @@
 import {
-  pgTable, text, integer, boolean, timestamp, uuid, check
+  pgTable, text, integer, boolean, timestamp, uuid, check, index
 } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 // ---------- Better Auth tables ----------
-// These match what `npx @better-auth/cli generate` produces for the magicLink plugin.
-// Plan 04 will re-run the CLI as a sanity check; this is the canonical starting shape.
+// Merged with `npx @better-auth/cli@latest generate` output from Plan 04.
+// Additions from CLI drift check (2026-04-11):
+//   - user.name made notNull (Better Auth now requires a name on insert)
+//   - account: added accessToken/refreshToken/idToken/accessTokenExpiresAt/refreshTokenExpiresAt/scope/password
+//     (all nullable; unused by magic-link but required for future OAuth providers per Better Auth 1.6 schema)
+//   - indexes added on session.userId, account.userId, verification.identifier (CLI-recommended performance hints)
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
   email: text('email').notNull().unique(),
   emailVerified: boolean('email_verified').notNull().default(false),
-  name: text('name'),
+  name: text('name').notNull(),
   image: text('image'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow()
@@ -26,16 +30,27 @@ export const session = pgTable('session', {
   userAgent: text('user_agent'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow()
-});
+}, (t) => [
+  index('session_userId_idx').on(t.userId)
+]);
 
 export const account = pgTable('account', {
   id: text('id').primaryKey(),
   userId: text('user_id').notNull().references(() => user.id, { onDelete: 'cascade' }),
   accountId: text('account_id').notNull(),
   providerId: text('provider_id').notNull(),
+  accessToken: text('access_token'),
+  refreshToken: text('refresh_token'),
+  idToken: text('id_token'),
+  accessTokenExpiresAt: timestamp('access_token_expires_at'),
+  refreshTokenExpiresAt: timestamp('refresh_token_expires_at'),
+  scope: text('scope'),
+  password: text('password'),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow()
-});
+}, (t) => [
+  index('account_userId_idx').on(t.userId)
+]);
 
 export const verification = pgTable('verification', {
   id: text('id').primaryKey(),
@@ -44,7 +59,9 @@ export const verification = pgTable('verification', {
   expiresAt: timestamp('expires_at').notNull(),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   updatedAt: timestamp('updated_at').notNull().defaultNow()
-});
+}, (t) => [
+  index('verification_identifier_idx').on(t.identifier)
+]);
 
 // ---------- Rule 257 loyalty tables ----------
 
