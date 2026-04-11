@@ -9,12 +9,16 @@
 		"build:vercel": "cross-env BUILD_TARGET=vercel vite build",
 		"build:mobile": "cross-env BUILD_TARGET=mobile vite build",
 		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"cap:sync": "npm run build:mobile && npx cap sync",
+		"cap:ios": "npm run cap:sync && npx cap open ios",
+		"cap:android": "npm run cap:sync && npx cap open android"
 	},
 	"engines": {
 		"node": ">=22"
 	},
 	"devDependencies": {
+		"@capacitor/cli": "^8.3.0",
 		"@fontsource/fraunces": "^5.2.9",
 		"@fontsource/inter": "^5.2.8",
 		"@sveltejs/adapter-static": "^3.0.10",
@@ -32,6 +36,9 @@
 		"vite": "^8.0.7"
 	},
 	"dependencies": {
+		"@capacitor/android": "^8.3.0",
+		"@capacitor/core": "^8.3.0",
+		"@capacitor/ios": "^8.3.0",
 		"better-auth": "^1.6.2",
 		"drizzle-orm": "^0.45.2",
 		"postgres": "^3.4.9",
