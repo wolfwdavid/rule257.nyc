@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-03-layout-shell-and-home-PLAN.md
-last_updated: "2026-04-11T02:18:26.197Z"
+stopped_at: Completed 01-02-supabase-drizzle-schema-PLAN.md
+last_updated: "2026-04-11T02:24:37.745Z"
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 5
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -48,6 +48,7 @@ Plan: 3 of 5
 *Updated after each plan completion*
 | Phase 01 P01 | 11 | 2 tasks | 18 files |
 | Phase 01-foundation P03 | 15min | 3 tasks | 12 files |
+| Phase 01 P02 | 19 | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -64,6 +65,10 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: Plan 03: adapter-static fallback renamed to 200.html so prerendered index.html survives (enables build/index.html verification)
 - [Phase 01-foundation]: Plan 03: Shared auth-modal state as Svelte 5 runes .svelte.ts module (SiteHeader consumes now, Plan 04 AuthModal will consume the same singleton)
 - [Phase 01-foundation]: Plan 03: +layout.svelte children prop renamed to pageContent to avoid snippet shadowing with SafeArea's children snippet
+- [Phase 01]: postgres.js driver with { prepare: false } is the mandatory Drizzle client pattern for any Supabase-connected code (RESEARCH Pitfall #8)
+- [Phase 01]: drizzle-kit generate+migrate workflow (not push) -- migration SQL is committed to supabase/migrations/ so schema is reproducible from any clone
+- [Phase 01]: CHECK constraints over Postgres enum types for role/type/status -- keeps Phase 3 reward-economics migrations single-line rather than ALTER TYPE dances
+- [Phase 01]: Extracted legacy JWT anon key via 'supabase status -o json' because CLI 2.89.1 only shows new-style sb_publishable_* keys in pretty-print output
 
 ### Pending Todos
 
@@ -77,6 +82,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-11T02:18:26.194Z
-Stopped at: Completed 01-03-layout-shell-and-home-PLAN.md
+Last session: 2026-04-11T02:24:37.741Z
+Stopped at: Completed 01-02-supabase-drizzle-schema-PLAN.md
 Resume file: None
