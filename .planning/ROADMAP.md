@@ -12,7 +12,7 @@ This roadmap delivers Rule 257's digital presence in five phases: scaffolding th
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - SvelteKit + Capacitor scaffolding, dual-adapter config, database schema, auth, design system
+- [x] **Phase 1: Foundation** - SvelteKit + Capacitor scaffolding, dual-adapter config, database schema, auth, design system
 - [ ] **Phase 2: Brand Portfolio** - Full brand website with gallery, menu, events, artists, editorial, location, and Instagram content
 - [ ] **Phase 3: Loyalty System** - Points-per-purchase program with user accounts, QR scanning, staff admin, rewards catalog, and redemption
 - [ ] **Phase 4: Native Mobile Apps** - iOS and Android apps via Capacitor with native QR scanning, haptics, and loyalty-first experience
@@ -36,7 +36,7 @@ Plans:
 - [x] 01-02-PLAN.md -- Supabase local + Drizzle schema + 9 tables migrated (Wave 2)
 - [x] 01-03-PLAN.md -- Layout shell components + Coming Soon home (Wave 2)
 - [x] 01-04-PLAN.md -- Better Auth + magic link + Resend + AuthModal + /account stub (Wave 3)
-- [ ] 01-05-PLAN.md -- Capacitor 8 SPM + full smoke test + human verify (Wave 4)
+- [x] 01-05-PLAN.md -- Capacitor 8 SPM + full smoke test + human verify (Wave 4)
 
 ### Phase 2: Brand Portfolio
 **Goal**: Visitors experience Rule 257's identity online -- they can see the space, browse the menu, discover events and artist collaborations, read editorial content, and find the cafe
@@ -104,7 +104,7 @@ Note: Phases 2 and 3 share a dependency on Phase 1 only; they could run in paral
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/5 | Planned | - |
+| 1. Foundation | 5/5 | Complete | 2026-04-12 |
 | 2. Brand Portfolio | 0/? | Not started | - |
 | 3. Loyalty System | 0/? | Not started | - |
 | 4. Native Mobile Apps | 0/? | Not started | - |

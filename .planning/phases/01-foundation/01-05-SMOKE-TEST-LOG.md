@@ -273,3 +273,39 @@ Capacitor 8's iOS scaffold places `Package.swift` at **`ios/App/CapApp-SPM/Packa
 - `ios/App/Podfile` does NOT exist (CocoaPods is correctly absent)
 
 The plan's `test -f ios/App/Package.swift` literal path check would fail, but the SPM intent is fully satisfied at the canonical Capacitor 8 path. See the 01-05-SUMMARY.md Deviations section for details.
+
+---
+
+## Human Verification
+
+**Date:** 2026-04-12T00:00:00Z
+**Resolution:** Option B accepted
+**Verified by:** User (manual walkthrough)
+
+### Walkthrough Steps Completed
+
+| Step | Description | Result |
+|------|-------------|--------|
+| 1-3 | Supabase running, dev server started, homepage renders (sticky nav, Coming Soon, footer) | PASS |
+| 4 | Responsive layout at 375px, hamburger appears, overlay opens with stacked nav links | PASS |
+| 5 | Sign in button opens AuthModal with correct copy, email input, Send magic link button | PASS |
+| 6 | Escape key closes modal | PASS |
+| 11 | /account page renders Welcome heading + email + Sign out button (when signed in) | PASS |
+| 12 | Sign out redirects back to / with Sign in button restored | PASS |
+| 13 | Direct /account access while signed out redirects to / | PASS |
+| 14 | Session cookie visible in devtools | PASS |
+
+### Steps Skipped (7-10)
+
+Steps 7-10 (enter email, send magic link, receive email in Inbucket/inbox, click link to land on /account) were **skipped** because `RESEND_API_KEY=re_placeholder_for_plan_04` is a placeholder. Better Auth returns `{"status":true}` for enumeration protection regardless of whether Resend actually delivers the email, so the endpoint wiring is proven but the end-to-end email click-through could not be exercised.
+
+**Criterion 4 resolution:** Code-level (9/9 grep checks) + endpoint-level (HTTP 200 on `/api/auth/sign-in/magic-link` and `/api/auth/get-session`) verification accepted as sufficient evidence. Real end-to-end email-click test deferred until the Resend domain (`rule257.nyc`) is verified and a real API key is configured in a later phase.
+
+### Accepted Decisions
+
+- **D-29 email template substitution:** `svelte/server render()` with a hand-rolled Svelte 5 component accepted as a substitute for React Email / svelte-email-tailwind. Zero new deps, Svelte-only codebase. The component-based + server-rendered + brand-typography intent of the original decision is preserved.
+- **Option B checkpoint acceptance:** Phase 1 closes with code+endpoint verification of Criterion 4. The magic-link email delivery pipeline (Resend API call) is wired but untested end-to-end. This is a known limitation, not a gap.
+
+### Final Verdict
+
+All 4 Phase 1 ROADMAP success criteria: **PASS** (Criterion 4 caveated as code+endpoint-verified; real E2E email click deferred)
