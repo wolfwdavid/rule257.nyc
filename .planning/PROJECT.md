@@ -60,10 +60,12 @@ The site must authentically represent Rule 257's identity as a space where art, 
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| SvelteKit + Capacitor | Single codebase for web + mobile, user preference | — Pending |
-| Points-per-purchase loyalty | Simple, proven model for café loyalty | — Pending |
-| Clean minimal design | Matches Rule 257's blend of Nordic simplicity and creative energy | — Pending |
-| Standalone loyalty (no POS) | POS system undecided, build independent first | — Pending |
+| SvelteKit + Capacitor | Single codebase for web + mobile, user preference | ✓ Shipped (Phase 1) — dual-adapter via BUILD_TARGET env var |
+| Points-per-purchase loyalty | Simple, proven model for café loyalty | — Pending (Phase 3) |
+| Clean minimal design | Matches Rule 257's blend of Nordic simplicity and creative energy | ✓ Shipped (Phase 1) — TailwindCSS v4 @theme tokens + Fraunces/Inter |
+| Standalone loyalty (no POS) | POS system undecided, build independent first | — Pending (Phase 3) |
+| Better Auth magic-link (passwordless) | Lower friction than passwords; aligns with brand minimalism | ✓ Shipped (Phase 1) — code/endpoint wired, real-email E2E deferred pending Resend domain |
+| Svelte email template via `svelte/server` | Avoid React transitive dep (D-29 substituted React Email) | ✓ Shipped (Phase 1) |
 
 ## Evolution
 
@@ -83,4 +85,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-09 after initialization*
+*Last updated: 2026-04-17 after Phase 1 (foundation) completion*
