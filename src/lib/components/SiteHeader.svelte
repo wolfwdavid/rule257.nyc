@@ -38,9 +38,16 @@
 >
   <a
     href="/"
-    class="inline-flex min-h-11 items-center font-serif text-[28px] font-normal leading-none text-[color:var(--color-ink)]"
+    class="group inline-flex min-h-11 items-center font-serif text-[28px] font-normal leading-none text-[color:var(--color-ink)]"
   >
-    Rule 257
+    <span class="relative inline-block">
+      Rule 257
+      <span
+        aria-hidden="true"
+        class="absolute left-0 -bottom-1 h-px w-0 transition-[width] duration-150 ease-out group-hover:w-full"
+        style="background-color: var(--color-accent);"
+      ></span>
+    </span>
   </a>
 
   <nav class="hidden items-center gap-8 md:flex">

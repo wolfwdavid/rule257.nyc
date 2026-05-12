@@ -8,7 +8,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
     <div>
       <h2
-        class="mb-6 font-sans text-[13px] font-normal uppercase tracking-wide text-[color:var(--color-ink-muted)]"
+        class="mb-6 font-sans text-[13px] font-normal uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]"
       >
         Navigate
       </h2>
@@ -21,7 +21,7 @@
 
     <div>
       <h2
-        class="mb-6 font-sans text-[13px] font-normal uppercase tracking-wide text-[color:var(--color-ink-muted)]"
+        class="mb-6 font-sans text-[13px] font-normal uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]"
       >
         Visit
       </h2>
@@ -34,7 +34,7 @@
 
     <div>
       <h2
-        class="mb-6 font-sans text-[13px] font-normal uppercase tracking-wide text-[color:var(--color-ink-muted)]"
+        class="mb-6 font-sans text-[13px] font-normal uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]"
       >
         Follow
       </h2>
